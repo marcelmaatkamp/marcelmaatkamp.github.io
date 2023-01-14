@@ -7,8 +7,9 @@ pandoc \
     -o build/html/index.html \
     --highlight-style tango \
     --filter pandoc-crossref \
-    -s -t slidy \
+    -s \
+    -t html5 \
     metadata.yml \
     src/*/*.md
 
-cp -r img build/html/
+cp -r img build/html_slides/
