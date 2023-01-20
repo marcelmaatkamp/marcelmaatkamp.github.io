@@ -1,0 +1,28 @@
+#!/bin/bash
+
+mkdir -p\
+ build/epub \
+ build/pdf \
+ build/html \
+ build/html_slides
+
+docker run --rm \
+ --volume "${PWD}/src:/data/src" \
+ --volume "${PWD}/templates:/data/templates" \
+ --volume "${PWD}/build:/data/build" \
+ --volume "${PWD}/metadata.yml:/data/metadata.yml" \
+ --volume "${PWD}/pagebreak.lua:/data/pagebreak.lua" \
+ --volume "${PWD}/img:/data/img" \
+ --volume "${PWD}/backgrounds:/data/backgrounds" \
+ --user $(id -u):$(id -g) \
+ pandoc:alles \
+  --pdf-engine=xelatex \
+  --template=./templates/eisvogel.latex \
+  --from markdown \
+  --toc -N \
+  --listings \
+  --filter pandoc-crossref \
+  --lua-filter=pagebreak.lua \
+  -o build/pdf/output.pdf \
+  metadata.yml \
+  src/*/*.md
