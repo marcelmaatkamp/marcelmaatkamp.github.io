@@ -10,11 +10,12 @@ ENV UID=10001
 RUN adduser \
     --disabled-password \
     --gecos "" \
-    --home "/nonexistent" \
+    --home "/data" \
     --shell "/sbin/nologin" \
     --no-create-home \
     --uid "${UID}" \
-    "${USER}"
+    "${USER}" &&\
+  chown -R ${USER} /data
 
 # Install dependencies
 ENV DEBIAN_FRONTEND noninteractive
@@ -26,9 +27,7 @@ RUN apt install -y \
  binutils \
  make \
  wget \
- imagemagick
-
-RUN apt install -y \
+ imagemagick \
  pandoc \
  libpar-packer-perl \
  perl-doc zlib1g \
@@ -40,22 +39,27 @@ RUN apt install -y \
  texlive-fonts-recommended \
  texlive-fonts-extra \
  texlive-xetex \
- texlive-latex-recommended
+ texlive-latex-recommended \
+ wget \
+ curl
 
 RUN \
- wget -O- https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add \
- && echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list \
- && apt-get update && apt-get install -y -q yarn npm \
- && apt-get -y -q autoremove \
- && rm -rf /var/lib/apt/lists
+ curl -s https://deb.nodesource.com/gpgkey/nodesource.gpg.key | apt-key add - &&\
+ sh -c "echo deb https://deb.nodesource.com/node_16.x kinetic main > /etc/apt/sources.list.d/nodesource.list" &&\
+ apt-get update &&\
+ apt-get install -y -q \
+  nodejs &&\
+ apt-get -y -q autoremove &&\
+ rm -rf /var/lib/apt/lists
+
+VOLUME /data
+WORKDIR /data
+
+RUN mkdir /.cache && chown -R ebook /.cache
 
 RUN \
  npm install --global \
-  mermaid-filter
-
-RUN wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add - \ 
-    && echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list
-RUN apt-get update && apt-get -y install google-chrome-stable
+  @marcelmaatkamp/mermaid-filter@1.4.10
 
 RUN \
  tlmgr install \
@@ -72,13 +76,19 @@ RUN \
   footnotebackref \
   pagecolor \
   mdframed \
-zref needspace sourcesanspro sourcecodepro titling
+  zref \
+  needspace \
+  sourcesanspro \
+  sourcecodepro \
+  titling \
+  fvextra
 
-RUN \
- ln -s /usr/bin/google-chrome /usr/bin/chrome
-VOLUME /data
-WORKDIR /data
-
-RUN mkdir /nonexistent && chown -R ebook /nonexistent
 USER ebook:ebook
+RUN \
+  node "/usr/lib/node_modules/@marcelmaatkamp/mermaid-filter/node_modules/puppeteer/install.js"
+USER root
+RUN \
+  ln -s /nonexistent/.cache/puppeteer/chrome/linux-1083080/chrome-linux/chrome /usr/local/bin/chrome
+USER ebook:ebook
+
 ENTRYPOINT ["pandoc"]

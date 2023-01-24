@@ -1,0 +1,13 @@
+pandoc \
+ --pdf-engine=xelatex \
+ --template=/data/templates/eisvogel.latex \
+ --from markdown \
+ --toc \
+ -N \
+ --listings \
+ --filter pandoc-crossref \
+ --lua-filter=/data/pagebreak.lua \
+ -o /data/build/pdf/output.pdf \
+ -F mermaid-filter  \
+ /data/metadata.yml \
+ /data/src/*/*.md
