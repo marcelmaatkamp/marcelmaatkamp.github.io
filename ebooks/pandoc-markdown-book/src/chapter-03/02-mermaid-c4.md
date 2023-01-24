@@ -1,10 +1,8 @@
-# mermaid
+## C4
 
-```mermaid
-sequenceDiagram
-    Alice->>John: Hello John, how are you?
-    John-->>Alice: Great!
-```
+### C4Context
+
+#### C4Context Example 1
 ```
     C4Context
       title System Context diagram for Internet Banking System
@@ -49,7 +47,7 @@ sequenceDiagram
 
       UpdateLayoutConfig($c4ShapeInRow="3", $c4BoundaryInRow="1")
 ```
-
+#### C4Context Example 2
 ```mermaid
     C4Context
       title System Context diagram for Internet Banking System
@@ -95,7 +93,7 @@ sequenceDiagram
       UpdateLayoutConfig($c4ShapeInRow="3", $c4BoundaryInRow="1")
 ```
 
-# c4context
+#### C4Context Example 3
 ```
     C4Context
       title System Context diagram for Internet Banking System
@@ -139,9 +137,9 @@ sequenceDiagram
       UpdateRelStyle(SystemC, customerA, $textColor="red", $lineColor="red", $offsetX="-50", $offsetY="20")
 
       UpdateLayoutConfig($c4ShapeInRow="3", $c4BoundaryInRow="1")
-
-
 ```
+
+#### C4Context Example 4
 ```mermaid
     C4Context
       title System Context diagram for Internet Banking System
@@ -186,7 +184,9 @@ sequenceDiagram
 
       UpdateLayoutConfig($c4ShapeInRow="3", $c4BoundaryInRow="1")
 ```
-# container
+### C4Container
+
+#### C4Container Example 1
 ```
     C4Container
     title Container diagram for Internet Banking System
@@ -226,6 +226,7 @@ sequenceDiagram
     UpdateRelStyle(backend_api, banking_system, $offsetY="-50", $offsetX="-140")
 ```
 
+#### C4Container Example 2
 ```mermaid
     C4Container
     title Container diagram for Internet Banking System
@@ -264,7 +265,9 @@ sequenceDiagram
     Rel(backend_api, banking_system, "Uses", "sync/async, XML/HTTPS")
     UpdateRelStyle(backend_api, banking_system, $offsetY="-50", $offsetX="-140")
 ```
-# C4Component
+### C4Component
+
+#### C4Component Example 1
 ```
     C4Component
     title Component diagram for Internet Banking System - API Application
@@ -304,6 +307,7 @@ sequenceDiagram
         UpdateRelStyle(mbsfacade, mbs, $offsetY="-40")
 ```
 
+#### C4Component Example 2
 ```mermaid
     C4Component
     title Component diagram for Internet Banking System - API Application
@@ -342,7 +346,10 @@ sequenceDiagram
         UpdateRelStyle(security, db, $offsetY="-40")
         UpdateRelStyle(mbsfacade, mbs, $offsetY="-40")
 ```
-# C4Dynamic
+
+### C4Dynamic
+
+#### C4Dynamic Example 1
 ```
     C4Dynamic
     title Dynamic diagram for Internet Banking System - API Application
@@ -362,6 +369,7 @@ sequenceDiagram
     UpdateRelStyle(c3, c4, $textColor="red", $offsetY="-40", $offsetX="10")
 ```
 
+#### C4Dynamic Example 2
 ```mermaid
     C4Dynamic
     title Dynamic diagram for Internet Banking System - API Application
@@ -380,7 +388,9 @@ sequenceDiagram
     UpdateRelStyle(c2, c3, $textColor="red", $offsetX="-40", $offsetY="60")
     UpdateRelStyle(c3, c4, $textColor="red", $offsetY="-40", $offsetX="10")
 ```
-# C4Deployment
+### C4Deployment
+
+#### C4Deployment Example 1
 ```
     C4Deployment
     title Deployment Diagram for Internet Banking System - Live
@@ -433,7 +443,7 @@ sequenceDiagram
 
 
 ```
-
+#### C4Deployment Example 2
 ```mermaid
     C4Deployment
     title Deployment Diagram for Internet Banking System - Live
@@ -484,4 +494,3 @@ sequenceDiagram
     UpdateRelStyle(api, db2, $offsetX="-40", $offsetY="-20")
     UpdateRelStyle(db, db2, $offsetY="-10")
 ```
-

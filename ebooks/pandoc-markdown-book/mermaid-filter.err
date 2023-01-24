@@ -1,11 +1,1 @@
-
-Error: Could not find Chromium (rev. 1083080). This can occur if either
- 1. you did not perform an installation before running the script (e.g. `npm install`) or
- 2. your cache path is incorrectly configured (which is: /.cache/puppeteer).
-For (2), check out our guide on configuring puppeteer at https://pptr.dev/guides/configuration.
-    at ChromeLauncher.resolveExecutablePath (file:///usr/lib/node_modules/@marcelmaatkamp/mermaid-filter/node_modules/puppeteer-core/lib/esm/puppeteer/node/ProductLauncher.js:101:27)
-    at ChromeLauncher.executablePath (file:///usr/lib/node_modules/@marcelmaatkamp/mermaid-filter/node_modules/puppeteer-core/lib/esm/puppeteer/node/ChromeLauncher.js:176:25)
-    at ChromeLauncher.launch (file:///usr/lib/node_modules/@marcelmaatkamp/mermaid-filter/node_modules/puppeteer-core/lib/esm/puppeteer/node/ChromeLauncher.js:64:37)
-    at async run (file:///usr/lib/node_modules/@marcelmaatkamp/mermaid-filter/node_modules/@mermaid-js/mermaid-cli/src/index.js:370:19)
-    at async cli (file:///usr/lib/node_modules/@marcelmaatkamp/mermaid-filter/node_modules/@mermaid-js/mermaid-cli/src/index.js:153:3)
-
+"/usr/lib/node_modules/@marcelmaatkamp/mermaid-filter/node_modules/.bin/mmdc"    -w 800 -s 1 -f -i "/tmp/tmp-162MC667T3GlAM.tmp" -t default -b white -o "/tmp/tmp-162MC667T3GlAM.tmp.png" /tmp/tmp-162MC667T3GlAM.tmp.png

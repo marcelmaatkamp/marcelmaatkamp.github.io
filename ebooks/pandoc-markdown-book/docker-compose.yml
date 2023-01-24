@@ -1,4 +1,5 @@
-version: "3.8"
+version: "3"
+
 services:
  pandoc:
   image: marcelmaatkamp/pandoc:rust
@@ -7,7 +8,9 @@ services:
   build: 
     context: .
     dockerfile: Dockerfile.rust
-  command: |
+  entrypoint: bash
+  command: -c "
+    pandoc
     --pdf-engine=xelatex
     --template=templates/eisvogel.latex
     --from markdown
@@ -19,7 +22,7 @@ services:
     -o build/pdf/output.pdf
     -F mermaid-filter
     metadata.yml
-    /data/src/*/*.md
+    /data/src/*/*.md"
   volumes:
     - "./src:/data/src"
     - "./templates:/data/templates"
