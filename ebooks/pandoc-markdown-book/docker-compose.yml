@@ -1,5 +1,7 @@
 version: "3.8"
 services:
  pandoc:
-  image: pandoc:alles
-  build: .
+  image: marcelmaatkamp/pandoc:rust
+  build: 
+    context: .
+    dockerfile: Dockerfile.rust

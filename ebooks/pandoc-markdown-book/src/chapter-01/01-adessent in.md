@@ -7,3 +7,15 @@ inmotae volucri dente.
 - Aequorei clara
 - Illo olivae
 - Quibus erraverit ab non sed sedet ille
+
+~~~mermaid
+sequenceDiagram
+    Alice->>John: Hello John, how are you?
+    John-->>Alice: Great!
+~~~
+
+```mermaid
+sequenceDiagram
+    Alice->>John: Hello John, how are you?
+    John-->>Alice: Great!
+```

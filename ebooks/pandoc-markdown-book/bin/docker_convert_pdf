@@ -7,6 +7,7 @@ mkdir -p\
  build/html_slides
 
 docker run --rm \
+ --privileged \
  --volume "${PWD}/src:/data/src" \
  --volume "${PWD}/templates:/data/templates" \
  --volume "${PWD}/build:/data/build" \
@@ -14,8 +15,9 @@ docker run --rm \
  --volume "${PWD}/pagebreak.lua:/data/pagebreak.lua" \
  --volume "${PWD}/img:/data/img" \
  --volume "${PWD}/backgrounds:/data/backgrounds" \
+ --volume "${PWD}/mermaid-filter.err:/data/mermaid-filter.err:rw" \
  --user $(id -u):$(id -g) \
- pandoc:alles \
+ marcelmaatkamp/pandoc:rust \
   --pdf-engine=xelatex \
   --template=./templates/eisvogel.latex \
   --from markdown \
@@ -24,5 +26,6 @@ docker run --rm \
   --filter pandoc-crossref \
   --lua-filter=pagebreak.lua \
   -o build/pdf/output.pdf \
+ -F mermaid-filter \
   metadata.yml \
   src/*/*.md
