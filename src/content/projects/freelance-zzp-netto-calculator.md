@@ -1,3 +1,4 @@
+---
 title: "Freelance ZZP Netto Calculator"
 description: "Calculate your net income as a freelance / ZZP professional in the Netherlands."
 pubDate: 2026-02-18
