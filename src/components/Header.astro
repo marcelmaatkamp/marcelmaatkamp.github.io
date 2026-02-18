@@ -1,0 +1,72 @@
+---
+const links = [
+	{ href: '/', label: 'Home' },
+	{ href: '/blog', label: 'Blog' },
+	{ href: '/portfolio', label: 'Portfolio' },
+	{ href: '/naslagwerk', label: 'Naslagwerk' },
+];
+---
+
+<header class="header">
+	<div class="container header-content">
+		<a href="/" class="logo">
+			<span class="text-gradient">Marcel Maatkamp</span>
+		</a>
+		<nav>
+			<ul class="nav-links">
+				{links.map(link => (
+					<li><a href={link.href}>{link.label}</a></li>
+				))}
+			</ul>
+		</nav>
+	</div>
+</header>
+
+<style>
+	.header {
+		padding: var(--space-4) 0;
+		background-color: rgba(15, 15, 18, 0.8);
+		backdrop-filter: blur(10px);
+		position: sticky;
+		top: 0;
+		z-index: 100;
+		border-bottom: 1px solid var(--color-border);
+	}
+
+	.header-content {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+
+	.logo {
+		font-family: var(--font-heading);
+		font-weight: 700;
+		font-size: 1.5rem;
+		text-decoration: none;
+	}
+
+	.nav-links {
+		display: flex;
+		gap: var(--space-6);
+		list-style: none;
+		margin: 0;
+		padding: 0;
+	}
+
+	.nav-links a {
+		color: var(--color-text-muted);
+		font-weight: 500;
+		font-size: 0.95rem;
+	}
+
+	.nav-links a:hover {
+		color: var(--color-primary);
+	}
+
+	@media (max-width: 768px) {
+		.nav-links {
+			display: none; /* TODO: Mobile Menu */
+		}
+	}
+</style>

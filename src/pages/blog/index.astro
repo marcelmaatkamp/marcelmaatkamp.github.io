@@ -1,0 +1,121 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('blog')).sort(
+	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+---
+
+<Layout title="Blog | Marcel Maatkamp">
+	<section class="section">
+		<div class="container">
+			<h1 class="page-title">Blog</h1>
+			<p class="page-subtitle">Thoughts, tutorials, and updates.</p>
+			
+			<div class="post-grid">
+				{posts.map((post) => (
+					<a href={`/blog/${post.id}`} class="post-card card">
+						{post.data.heroImage && (
+							<img src={post.data.heroImage} alt={post.data.title} class="post-image" />
+						)}
+						<div class="post-content">
+							<h3>{post.data.title}</h3>
+							<time datetime={post.data.pubDate.toISOString()}>
+								{post.data.pubDate.toLocaleDateString('en-us', {
+									year: 'numeric',
+									month: 'short',
+									day: 'numeric',
+								})}
+							</time>
+							<p>{post.data.description}</p>
+							<div class="tags">
+								{post.data.tags?.map((tag) => (
+									<span class="tag">{tag}</span>
+								))}
+							</div>
+						</div>
+					</a>
+				))}
+			</div>
+		</div>
+	</section>
+</Layout>
+
+<style>
+	.section {
+		padding: var(--space-8) 0;
+	}
+
+	.page-title {
+		text-align: center;
+		margin-bottom: var(--space-2);
+	}
+
+	.page-subtitle {
+		text-align: center;
+		color: var(--color-text-muted);
+		margin-bottom: var(--space-8);
+		font-size: 1.25rem;
+	}
+
+	.post-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+		gap: var(--space-6);
+	}
+
+	.post-card {
+		text-decoration: none;
+		color: var(--color-text);
+		overflow: hidden;
+		display: flex;
+		flex-direction: column;
+		padding: 0; /* Override default card padding */
+	}
+
+	.post-image {
+		width: 100%;
+		height: 200px;
+		object-fit: cover;
+		border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+	}
+
+	.post-content {
+		padding: var(--space-6);
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-2);
+		flex: 1;
+	}
+
+	.post-content h3 {
+		margin: 0;
+		color: var(--color-primary);
+		transition: color var(--transition-fast);
+	}
+
+	.post-card:hover .post-content h3 {
+		color: var(--color-primary-hover);
+	}
+
+	.post-content time {
+		font-size: 0.85rem;
+		color: var(--color-text-muted);
+	}
+
+	.tags {
+		margin-top: auto;
+		display: flex;
+		gap: var(--space-2);
+		flex-wrap: wrap;
+	}
+
+	.tag {
+		background-color: var(--color-surface-hover);
+		padding: 2px 8px;
+		border-radius: var(--radius-full);
+		font-size: 0.75rem;
+		color: var(--color-text-muted);
+	}
+</style>

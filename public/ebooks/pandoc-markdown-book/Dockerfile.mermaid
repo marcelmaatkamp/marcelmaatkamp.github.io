@@ -1,0 +1,62 @@
+FROM pandoc/latex:latest
+
+# Install additional TeX packages such as those used by eisvogel template
+
+RUN \
+ tlmgr option repository http://mirror.ctan.org/systems/texlive/tlnet \
+ tlmgr update &&\
+ tlmgr install \
+  csquotes \
+  mdframed \
+  needspace \
+  sourcesanspro \
+  ly1 \
+  mweights \
+  sourcecodepro \
+  titling \
+  pagecolor \
+  epstopdf \
+  zref \
+  footnotebackref &&\
+ apk add --update \
+  ghostscript
+
+ENV \
+ CHROME_BIN="/usr/bin/chromium-browser" \
+ PUPPETEER_SKIP_CHROMIUM_DOWNLOAD="true"
+
+RUN \
+ apk add --update \
+  udev ttf-freefont \
+  chromium \
+  npm &&\
+ npm install -g \
+  mermaid-filter@1.4.5 --unsafe-perm=true
+
+# RUN \
+#  apk add --update \
+#   texmf-dist \
+#   texlive-xetex \
+#   texmf-dist-pictures \
+#   texmf-dist-latexextra \
+#   poppler-utils &&\
+#  texhash
+ 
+RUN \
+ tlmgr install \
+  latexmk \
+  lipsum \
+  pgf \
+  koma-script \ 
+  latex \
+  background \
+  everypage \
+  pdfpages \
+  hardwrap \
+  catchfile
+
+RUN apk add texlive-dvi texlive-xetex texlive-luatex texlive-doc
+RUN \
+ tlmgr update --all
+
+RUN npm install puppeteer --unsafe-perm=true --allow-root

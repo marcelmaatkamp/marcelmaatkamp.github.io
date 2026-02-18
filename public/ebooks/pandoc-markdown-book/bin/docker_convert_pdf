@@ -1,0 +1,31 @@
+#!/bin/bash
+
+mkdir -p\
+ build/epub \
+ build/pdf \
+ build/html \
+ build/html_slides
+
+docker run --rm \
+ --privileged \
+ --volume "${PWD}/src:/data/src" \
+ --volume "${PWD}/templates:/data/templates" \
+ --volume "${PWD}/build:/data/build" \
+ --volume "${PWD}/metadata.yml:/data/metadata.yml" \
+ --volume "${PWD}/pagebreak.lua:/data/pagebreak.lua" \
+ --volume "${PWD}/img:/data/img" \
+ --volume "${PWD}/backgrounds:/data/backgrounds" \
+ --volume "${PWD}/mermaid-filter.err:/data/mermaid-filter.err:rw" \
+ --user $(id -u):$(id -g) \
+ marcelmaatkamp/pandoc:rust \
+  --pdf-engine=xelatex \
+  --template=./templates/eisvogel.latex \
+  --from markdown \
+  --toc -N \
+  --listings \
+  --filter pandoc-crossref \
+  --lua-filter=pagebreak.lua \
+  -o build/pdf/output.pdf \
+ -F mermaid-filter \
+  metadata.yml \
+  src/*/*.md

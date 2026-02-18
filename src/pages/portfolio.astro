@@ -1,0 +1,150 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+
+const projects = (await getCollection('projects')).sort(
+	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+---
+
+<Layout title="Portfolio | Marcel Maatkamp">
+	<section class="section">
+		<div class="container">
+			<h1 class="page-title">Portfolio</h1>
+			<p class="page-subtitle">Apps, websites, and experiments.</p>
+			
+			<div class="project-grid">
+				{projects.map((project) => (
+					<div class="project-card card">
+						{project.data.heroImage && (
+							<a href={project.data.link} target="_blank" class="project-image-link">
+								<img src={project.data.heroImage} alt={project.data.title} class="project-image" />
+							</a>
+						)}
+						<div class="project-content">
+							<div class="project-header">
+								<h3>{project.data.title}</h3>
+								{project.data.platform && <span class="platform-badge">{project.data.platform}</span>}
+							</div>
+							<p>{project.data.description}</p>
+							<div class="project-footer">
+								<div class="tags">
+									{project.data.tags?.map((tag) => (
+										<span class="tag">{tag}</span>
+									))}
+								</div>
+								{project.data.link && (
+									<a href={project.data.link} target="_blank" class="btn btn-sm">View</a>
+								)}
+							</div>
+						</div>
+					</div>
+				))}
+			</div>
+		</div>
+	</section>
+</Layout>
+
+<style>
+	.section {
+		padding: var(--space-8) 0;
+	}
+
+	.page-title {
+		text-align: center;
+		margin-bottom: var(--space-2);
+	}
+
+	.page-subtitle {
+		text-align: center;
+		color: var(--color-text-muted);
+		margin-bottom: var(--space-8);
+		font-size: 1.25rem;
+	}
+
+	.project-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+		gap: var(--space-6);
+	}
+
+	.project-card {
+		display: flex;
+		flex-direction: column;
+		padding: 0;
+		overflow: hidden;
+	}
+
+	.project-image-link {
+		display: block;
+		overflow: hidden;
+	}
+
+	.project-image {
+		width: 100%;
+		height: 220px;
+		object-fit: cover;
+		transition: transform var(--transition-normal);
+	}
+
+	.project-card:hover .project-image {
+		transform: scale(1.05);
+	}
+
+	.project-content {
+		padding: var(--space-6);
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-4);
+		flex: 1;
+	}
+
+	.project-header {
+		display: flex;
+		justify-content: space-between;
+		align-items: flex-start;
+		gap: var(--space-2);
+	}
+
+	.project-header h3 {
+		margin: 0;
+		font-size: 1.25rem;
+	}
+
+	.platform-badge {
+		background-color: var(--color-primary);
+		color: white;
+		font-size: 0.7rem;
+		padding: 2px 6px;
+		border-radius: var(--radius-sm);
+		text-transform: uppercase;
+		font-weight: 600;
+		letter-spacing: 0.05em;
+	}
+
+	.project-footer {
+		margin-top: auto;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+
+	.tags {
+		display: flex;
+		gap: var(--space-2);
+		flex-wrap: wrap;
+	}
+
+	.tag {
+		background-color: var(--color-surface-hover);
+		padding: 2px 8px;
+		border-radius: var(--radius-full);
+		font-size: 0.75rem;
+		color: var(--color-text-muted);
+	}
+
+	.btn-sm {
+		padding: var(--space-1) var(--space-3);
+		font-size: 0.85rem;
+	}
+</style>

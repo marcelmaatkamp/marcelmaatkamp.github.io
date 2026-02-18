@@ -1,0 +1,192 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('blog')).sort(
+	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+
+const projects = (await getCollection('projects')).sort(
+	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+
+const featuredProject = projects[0];
+const latestPosts = posts.slice(0, 3);
+---
+
+<Layout title="Marcel Maatkamp | Portfolio">
+	
+	<!-- Hero Section -->
+	<section class="hero">
+		<div class="container">
+			<h1 class="hero-title">
+				Hi, I'm <span class="text-gradient">Marcel Maatkamp</span>.
+			</h1>
+			<p class="hero-subtitle">
+				Developer, Creator, and Tinkerer.
+			</p>
+			<div class="hero-actions">
+				<a href="/portfolio" class="btn">View Portfolio</a>
+				<a href="/blog" class="btn btn-secondary">Read Blog</a>
+			</div>
+		</div>
+	</section>
+
+	<!-- Featured Project -->
+	{featuredProject && (
+		<section class="section">
+			<div class="container">
+				<h2 class="section-title">Featured Project</h2>
+				<div class="featured-project card">
+					<div class="project-content">
+						<h3>{featuredProject.data.title}</h3>
+						<p>{featuredProject.data.description}</p>
+						<div class="tags">
+							{featuredProject.data.tags?.map((tag) => (
+								<span class="tag">{tag}</span>
+							))}
+						</div>
+						<a href={featuredProject.data.link} class="btn" target="_blank">View Project</a>
+					</div>
+					{featuredProject.data.heroImage && (
+						<div class="project-image">
+							<img src={featuredProject.data.heroImage} alt={featuredProject.data.title} />
+						</div>
+					)}
+				</div>
+			</div>
+		</section>
+	)}
+
+	<!-- Latest Posts -->
+	<section class="section">
+		<div class="container">
+			<h2 class="section-title">Latest from the Blog</h2>
+			<div class="post-grid">
+				{latestPosts.map((post) => (
+					<a href={`/blog/${post.id}`} class="post-card card">
+						<h3>{post.data.title}</h3>
+						<time datetime={post.data.pubDate.toISOString()}>
+							{post.data.pubDate.toLocaleDateString('en-us', {
+								year: 'numeric',
+								month: 'short',
+								day: 'numeric',
+							})}
+						</time>
+						<p>{post.data.description}</p>
+					</a>
+				))}
+			</div>
+		</div>
+	</section>
+
+</Layout>
+
+<style>
+	.hero {
+		padding: var(--space-16) 0;
+		text-align: center;
+	}
+
+	.hero-title {
+		font-size: 4rem;
+		margin-bottom: var(--space-4);
+	}
+
+	.hero-subtitle {
+		font-size: 1.5rem;
+		color: var(--color-text-muted);
+		margin-bottom: var(--space-8);
+	}
+
+	.hero-actions {
+		display: flex;
+		gap: var(--space-4);
+		justify-content: center;
+	}
+
+	.btn-secondary {
+		background-color: var(--color-surface);
+		border: 1px solid var(--color-border);
+		color: var(--color-text);
+	}
+
+	.btn-secondary:hover {
+		border-color: var(--color-primary);
+		background-color: var(--color-surface-hover);
+	}
+
+	.section {
+		padding: var(--space-12) 0;
+	}
+
+	.section-title {
+		margin-bottom: var(--space-8);
+		text-align: center;
+	}
+
+	.featured-project {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: var(--space-8);
+		align-items: center;
+	}
+
+	.project-content {
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-4);
+	}
+
+	.tags {
+		display: flex;
+		gap: var(--space-2);
+		flex-wrap: wrap;
+	}
+
+	.tag {
+		background-color: var(--color-surface-hover);
+		padding: 2px 8px;
+		border-radius: var(--radius-full);
+		font-size: 0.8rem;
+		color: var(--color-text-muted);
+	}
+
+	.post-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+		gap: var(--space-6);
+	}
+
+	.post-card {
+		text-decoration: none;
+		color: var(--color-text);
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-2);
+	}
+
+	.post-card h3 {
+		color: var(--color-primary);
+		margin: 0;
+	}
+
+	.post-card time {
+		font-size: 0.85rem;
+		color: var(--color-text-muted);
+	}
+
+	.post-card:hover h3 {
+		color: var(--color-primary-hover);
+	}
+
+	@media (max-width: 768px) {
+		.hero-title {
+			font-size: 2.5rem;
+		}
+		
+		.featured-project {
+			grid-template-columns: 1fr;
+		}
+	}
+</style>

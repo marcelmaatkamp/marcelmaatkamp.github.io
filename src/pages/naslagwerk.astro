@@ -1,0 +1,80 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+
+const ebooks = (await getCollection('ebooks')).sort(
+	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+---
+
+<Layout title="Naslagwerk | Marcel Maatkamp">
+	<section class="section">
+		<div class="container">
+			<h1 class="page-title">Naslagwerk</h1>
+			<p class="page-subtitle">Ebooks, manuals, and reference materials.</p>
+			
+			<div class="ebooks-grid">
+				{ebooks.map((ebook) => (
+					<div class="ebook-card card">
+						<div class="card-content">
+                            <div class="ebook-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+                            </div>
+							<h3>{ebook.data.title}</h3>
+							<p>{ebook.data.description}</p>
+							<div class="actions">
+                                {ebook.data.file && (
+								    <a href={ebook.data.file} class="btn btn-sm" target="_blank">Download / View</a>
+                                )}
+							</div>
+						</div>
+					</div>
+				))}
+			</div>
+		</div>
+	</section>
+</Layout>
+
+<style>
+	.section {
+		padding: var(--space-8) 0;
+	}
+
+	.page-title {
+		text-align: center;
+		margin-bottom: var(--space-2);
+	}
+
+	.page-subtitle {
+		text-align: center;
+		color: var(--color-text-muted);
+		margin-bottom: var(--space-8);
+		font-size: 1.25rem;
+	}
+
+	.ebooks-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+		gap: var(--space-6);
+	}
+
+    .ebook-card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .ebook-icon {
+        color: var(--color-primary);
+        margin-bottom: var(--space-4);
+        background: rgba(139, 92, 246, 0.1);
+        padding: var(--space-4);
+        border-radius: 50%;
+        display: inline-flex;
+    }
+
+    .actions {
+        margin-top: var(--space-4);
+    }
+</style>

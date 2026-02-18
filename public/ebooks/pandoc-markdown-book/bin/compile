@@ -1,0 +1,11 @@
+#!/bin/bash
+rm -rf build && \
+mkdir build &&
+echo ".. generating epub .." &&\
+bin/compile_epub &&\
+echo ".. generating html .." &&\
+bin/compile_html &&\
+echo ".. generating html slides .." &&\
+bin/compile_html_slides &&\
+echo ".. generating pdf .." &&\
+bin/compile_pdf

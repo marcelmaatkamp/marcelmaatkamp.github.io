@@ -1,0 +1,33 @@
+version: "3"
+
+services:
+ pandoc:
+  image: marcelmaatkamp/pandoc:rust
+  privileged: true
+  user: ebook:ebook
+  build: 
+    context: .
+    dockerfile: Dockerfile.rust
+  entrypoint: bash
+  command: -c "
+    pandoc
+    --pdf-engine=xelatex
+    --template=templates/eisvogel.latex
+    --from markdown
+    --toc
+    -N
+    --listings
+    --filter pandoc-crossref
+    --lua-filter=pagebreak.lua
+    -o build/pdf/output.pdf
+    -F mermaid-filter
+    metadata.yml
+    /data/src/*/*.md"
+  volumes:
+    - "./src:/data/src"
+    - "./templates:/data/templates"
+    - "./build:/data/build"
+    - "./metadata.yml:/data/metadata.yml"
+    - "./pagebreak.lua:/data/pagebreak.lua"
+    - "./img:/data/img"
+    - "./backgrounds:/data/backgrounds"

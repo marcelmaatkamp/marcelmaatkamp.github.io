@@ -1,0 +1,15 @@
+#!/bin/bash
+
+mkdir -p build/html_slides
+
+pandoc \
+    -f markdown+smart \
+    -o build/html_slides/index.html \
+    --highlight-style tango \
+    --filter pandoc-crossref \
+    -s \
+    -t slidy \
+    metadata.yml \
+    src/*/*.md
+
+cp -r img build/html_slides/
