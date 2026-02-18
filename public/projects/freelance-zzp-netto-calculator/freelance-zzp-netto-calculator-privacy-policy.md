@@ -2,7 +2,7 @@
 
 Last updated: February 18, 2026
 
-Marcel Maatkamp ("we", "our", or "us") operates the **Freelance Netto Calculator** (the "App"). This page informs you of our policies regarding the collection, use, and disclosure of personal data when you use our App and the choices you have associated with that data.
+Marcel Maatkamp ("we", "our", or "us") operates the **Freelance ZZP Netto Calculator** (the "App"). This page informs you of our policies regarding the collection, use, and disclosure of personal data when you use our App and the choices you have associated with that data.
 
 ## 1. Information Collection and Use
 
