@@ -22,13 +22,15 @@ const latestPosts = posts.slice(0, 3);
 				👋 Hi, I'm <span class="text-gradient">Marcel Maatkamp</span>!
 			</h1>
 			<p class="hero-subtitle">
-				Software Developer | Data Engineer | MLOps
+				Software & Android Developer | Data Engineer | MLOps
 			</p>
 			<div class="hero-description card">
 				<p>
 					Building robust data pipelines, scalable software, and
 					machine learning operations. Currently diving deep into <strong
 						>Data Science</strong
+					>, <strong>Android Development</strong>, and <strong
+						>Cloud-native architectures</strong
 					> to make the stack even more awesome!
 				</p>
 			</div>
@@ -44,25 +46,78 @@ const latestPosts = posts.slice(0, 3);
 	<!-- Tech Stack Section -->
 	<section class="section tech-stack">
 		<div class="container">
-			<h2 class="section-title">Power Stack & Interests</h2>
-			<div class="tech-grid">
-				{
-					[
-						{ name: "MinIO", icon: "📦" },
-						{ name: "Kafka", icon: "⚡" },
-						{ name: "RabbitMQ", icon: "🐰" },
-						{ name: "Spring Boot", icon: "🍃" },
-						{ name: "DBT", icon: "🔨" },
-						{ name: "Materialized", icon: "🔮" },
-						{ name: "Metabase", icon: "📊" },
-						{ name: "Liquibase", icon: "💧" },
-					].map((tech) => (
-						<div class="tech-item card">
-							<span class="tech-icon">{tech.icon}</span>
-							<span class="tech-name">{tech.name}</span>
-						</div>
-					))
-				}
+			<h2 class="section-title">Professional Expertise</h2>
+
+			<div class="tech-categories">
+				<!-- Infrastructure & MLOps -->
+				<div class="category-group">
+					<h3>Infrastructure & MLOps</h3>
+					<div class="tech-grid">
+						{
+							[
+								{ name: "Kubernetes", icon: "☸️" },
+								{ name: "Docker", icon: "🐳" },
+								{ name: "Terraform", icon: "🏗️" },
+								{ name: "Prometheus", icon: "🔥" },
+								{ name: "Grafana", icon: "📈" },
+								{ name: "GitHub Actions", icon: "🚀" },
+								{ name: "GitLab CI", icon: "🦊" },
+								{ name: "MinIO", icon: "📦" },
+							].map((tech) => (
+								<div class="tech-item card">
+									<span class="tech-icon">{tech.icon}</span>
+									<span class="tech-name">{tech.name}</span>
+								</div>
+							))
+						}
+					</div>
+				</div>
+
+				<!-- Data Engineering & Analytics -->
+				<div class="category-group">
+					<h3>Data Engineering & Analytics</h3>
+					<div class="tech-grid">
+						{
+							[
+								{ name: "Kafka", icon: "⚡" },
+								{ name: "DBT", icon: "🔨" },
+								{ name: "Postgres", icon: "🐘" },
+								{ name: "MongoDB", icon: "🍃" },
+								{ name: "Materialized", icon: "🔮" },
+								{ name: "Jupyter", icon: "📓" },
+								{ name: "Metabase", icon: "📊" },
+								{ name: "RabbitMQ", icon: "🐇" },
+							].map((tech) => (
+								<div class="tech-item card">
+									<span class="tech-icon">{tech.icon}</span>
+									<span class="tech-name">{tech.name}</span>
+								</div>
+							))
+						}
+					</div>
+				</div>
+
+				<!-- Software & App Development -->
+				<div class="category-group">
+					<h3>Software & App Development</h3>
+					<div class="tech-grid">
+						{
+							[
+								{ name: "Python", icon: "🐍" },
+								{ name: "Android", icon: "🤖" },
+								{ name: "Spring Boot", icon: "🌱" },
+								{ name: "TypeScript", icon: "🟦" },
+								{ name: "Directus", icon: "🐰" },
+								{ name: "Liquibase", icon: "💧" },
+							].map((tech) => (
+								<div class="tech-item card">
+									<span class="tech-icon">{tech.icon}</span>
+									<span class="tech-name">{tech.name}</span>
+								</div>
+							))
+						}
+					</div>
+				</div>
 			</div>
 		</div>
 	</section>
@@ -78,9 +133,11 @@ const latestPosts = posts.slice(0, 3);
 							<h3>{featuredProject.data.title}</h3>
 							<p>{featuredProject.data.description}</p>
 							<div class="tags">
-								{featuredProject.data.tags?.map((tag) => (
-									<span class="tag">{tag}</span>
-								))}
+								{featuredProject.data.tags?.map(
+									(tag: string) => (
+										<span class="tag">{tag}</span>
+									)
+								)}
 							</div>
 							<a
 								href={featuredProject.data.link}
@@ -170,11 +227,25 @@ const latestPosts = posts.slice(0, 3);
 		justify-content: center;
 	}
 
+	.tech-categories {
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-12);
+	}
+
+	.category-group h3 {
+		font-size: 1.5rem;
+		margin-bottom: var(--space-6);
+		color: var(--color-primary);
+		text-align: left;
+		border-left: 4px solid var(--color-primary);
+		padding-left: var(--space-4);
+	}
+
 	.tech-grid {
 		display: grid;
 		grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
 		gap: var(--space-4);
-		margin-top: var(--space-4);
 	}
 
 	.tech-item {
