@@ -1,12 +1,12 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import { getCollection } from 'astro:content';
+import Layout from "../layouts/Layout.astro";
+import { getCollection } from "astro:content";
 
-const posts = (await getCollection('blog')).sort(
+const posts = (await getCollection("blog")).sort(
 	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
 );
 
-const projects = (await getCollection('projects')).sort(
+const projects = (await getCollection("projects")).sort(
 	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
 );
 
@@ -15,94 +15,192 @@ const latestPosts = posts.slice(0, 3);
 ---
 
 <Layout title="Marcel Maatkamp | Portfolio">
-	
 	<!-- Hero Section -->
 	<section class="hero">
 		<div class="container">
 			<h1 class="hero-title">
-				Hi, I'm <span class="text-gradient">Marcel Maatkamp</span>.
+				👋 Hi, I'm <span class="text-gradient">Marcel Maatkamp</span>!
 			</h1>
 			<p class="hero-subtitle">
-				Developer, Creator, and Tinkerer.
+				Software Developer | Data Engineer | MLOps
 			</p>
+			<div class="hero-description card">
+				<p>
+					Building robust data pipelines, scalable software, and
+					machine learning operations. Currently diving deep into <strong
+						>Data Science</strong
+					> to make the stack even more awesome!
+				</p>
+			</div>
 			<div class="hero-actions">
 				<a href="/portfolio" class="btn">View Portfolio</a>
-				<a href="/blog" class="btn btn-secondary">Read Blog</a>
+				<a href="mailto:m.maatkamp@gmail.com" class="btn btn-secondary"
+					>Get in Touch</a
+				>
+			</div>
+		</div>
+	</section>
+
+	<!-- Tech Stack Section -->
+	<section class="section tech-stack">
+		<div class="container">
+			<h2 class="section-title">Power Stack & Interests</h2>
+			<div class="tech-grid">
+				{
+					[
+						{ name: "MinIO", icon: "📦" },
+						{ name: "Kafka", icon: "⚡" },
+						{ name: "RabbitMQ", icon: "🐰" },
+						{ name: "Spring Boot", icon: "🍃" },
+						{ name: "DBT", icon: "🔨" },
+						{ name: "Materialized", icon: "🔮" },
+						{ name: "Metabase", icon: "📊" },
+						{ name: "Liquibase", icon: "💧" },
+					].map((tech) => (
+						<div class="tech-item card">
+							<span class="tech-icon">{tech.icon}</span>
+							<span class="tech-name">{tech.name}</span>
+						</div>
+					))
+				}
 			</div>
 		</div>
 	</section>
 
 	<!-- Featured Project -->
-	{featuredProject && (
-		<section class="section">
-			<div class="container">
-				<h2 class="section-title">Featured Project</h2>
-				<div class="featured-project card">
-					<div class="project-content">
-						<h3>{featuredProject.data.title}</h3>
-						<p>{featuredProject.data.description}</p>
-						<div class="tags">
-							{featuredProject.data.tags?.map((tag) => (
-								<span class="tag">{tag}</span>
-							))}
+	{
+		featuredProject && (
+			<section class="section">
+				<div class="container">
+					<h2 class="section-title">Featured Project</h2>
+					<div class="featured-project card">
+						<div class="project-content">
+							<h3>{featuredProject.data.title}</h3>
+							<p>{featuredProject.data.description}</p>
+							<div class="tags">
+								{featuredProject.data.tags?.map((tag) => (
+									<span class="tag">{tag}</span>
+								))}
+							</div>
+							<a
+								href={featuredProject.data.link}
+								class="btn"
+								target="_blank"
+							>
+								View Project
+							</a>
 						</div>
-						<a href={featuredProject.data.link} class="btn" target="_blank">View Project</a>
+						{featuredProject.data.heroImage && (
+							<div class="project-image">
+								<img
+									src={featuredProject.data.heroImage}
+									alt={featuredProject.data.title}
+								/>
+							</div>
+						)}
 					</div>
-					{featuredProject.data.heroImage && (
-						<div class="project-image">
-							<img src={featuredProject.data.heroImage} alt={featuredProject.data.title} />
-						</div>
-					)}
 				</div>
-			</div>
-		</section>
-	)}
+			</section>
+		)
+	}
 
 	<!-- Latest Posts -->
 	<section class="section">
 		<div class="container">
 			<h2 class="section-title">Latest from the Blog</h2>
 			<div class="post-grid">
-				{latestPosts.map((post) => (
-					<a href={`/blog/${post.id}`} class="post-card card">
-						<h3>{post.data.title}</h3>
-						<time datetime={post.data.pubDate.toISOString()}>
-							{post.data.pubDate.toLocaleDateString('en-us', {
-								year: 'numeric',
-								month: 'short',
-								day: 'numeric',
-							})}
-						</time>
-						<p>{post.data.description}</p>
-					</a>
-				))}
+				{
+					latestPosts.map((post) => (
+						<a href={`/blog/${post.id}`} class="post-card card">
+							<h3>{post.data.title}</h3>
+							<time datetime={post.data.pubDate.toISOString()}>
+								{post.data.pubDate.toLocaleDateString("en-us", {
+									year: "numeric",
+									month: "short",
+									day: "numeric",
+								})}
+							</time>
+							<p>{post.data.description}</p>
+						</a>
+					))
+				}
 			</div>
 		</div>
 	</section>
-
 </Layout>
 
 <style>
 	.hero {
 		padding: var(--space-16) 0;
 		text-align: center;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: var(--space-8);
 	}
 
 	.hero-title {
 		font-size: 4rem;
-		margin-bottom: var(--space-4);
+		margin-bottom: var(--space-2);
 	}
 
 	.hero-subtitle {
-		font-size: 1.5rem;
+		font-size: 1.8rem;
+		font-weight: 500;
+		color: var(--color-secondary);
+		margin-bottom: var(--space-4);
+		letter-spacing: 0.05em;
+	}
+
+	.hero-description {
+		max-width: 800px;
+		margin: 0 auto var(--space-8);
+		font-size: 1.2rem;
+		line-height: 1.8;
 		color: var(--color-text-muted);
-		margin-bottom: var(--space-8);
+	}
+
+	.hero-description strong {
+		color: var(--color-accent);
 	}
 
 	.hero-actions {
 		display: flex;
 		gap: var(--space-4);
 		justify-content: center;
+	}
+
+	.tech-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+		gap: var(--space-4);
+		margin-top: var(--space-4);
+	}
+
+	.tech-item {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		padding: var(--space-4);
+		text-align: center;
+		gap: var(--space-2);
+		transition: transform var(--transition-fast),
+			border-color var(--transition-fast);
+	}
+
+	.tech-item:hover {
+		transform: translateY(-5px);
+		border-color: var(--color-secondary);
+	}
+
+	.tech-icon {
+		font-size: 2rem;
+	}
+
+	.tech-name {
+		font-size: 0.9rem;
+		font-weight: 600;
+		color: var(--color-text);
 	}
 
 	.btn-secondary {
@@ -184,7 +282,7 @@ const latestPosts = posts.slice(0, 3);
 		.hero-title {
 			font-size: 2.5rem;
 		}
-		
+
 		.featured-project {
 			grid-template-columns: 1fr;
 		}
