@@ -2,9 +2,11 @@
 interface Props {
 	images: string[];
 	id: string;
+	autoPlay?: boolean;
+	interval?: number;
 }
 
-const { images, id } = Astro.props;
+const { images, id, autoPlay = true, interval = 5000 } = Astro.props;
 ---
 
 <div class="carousel-container" id={id}>
@@ -15,7 +17,11 @@ const { images, id } = Astro.props;
 					class={`carousel-item ${index === 0 ? "active" : ""}`}
 					data-index={index}
 				>
-					<img src={image} alt={`Screenshot ${index + 1}`} loading="lazy" />
+					<img
+						src={image}
+						alt={`Screenshot ${index + 1}`}
+						loading="lazy"
+					/>
 				</div>
 			))
 		}
@@ -24,7 +30,10 @@ const { images, id } = Astro.props;
 	{
 		images.length > 1 && (
 			<>
-				<button class="carousel-control prev" aria-label="Previous image">
+				<button
+					class="carousel-control prev"
+					aria-label="Previous image"
+				>
 					&#10094;
 				</button>
 				<button class="carousel-control next" aria-label="Next image">
@@ -144,33 +153,54 @@ const { images, id } = Astro.props;
 	}
 </style>
 
-<script is:inline define:vars={{ id }}>
+<script is:inline define:vars={{ id, autoPlay, interval }}>
 	function initCarousel(carouselId) {
 		const container = document.getElementById(carouselId);
 		if (!container) return;
 
 		const items = container.querySelectorAll(".carousel-item");
 		const indicators = container.querySelectorAll(".indicator");
-		const prevBtn = container.querySelector(".prev");
-		const nextBtn = container.querySelector(".next");
 		let currentIndex = 0;
+		let autoPlayTimer = null;
 
 		function showSlide(index) {
 			items[currentIndex].classList.remove("active");
 			indicators[currentIndex]?.classList.remove("active");
-			
+
 			currentIndex = (index + items.length) % items.length;
-			
+
 			items[currentIndex].classList.add("active");
 			indicators[currentIndex]?.classList.add("active");
+
+			resetTimer();
 		}
 
-		prevBtn?.addEventListener("click", (e) => {
+		function startTimer() {
+			if (autoPlay && items.length > 1) {
+				autoPlayTimer = setInterval(() => {
+					showSlide(currentIndex + 1);
+				}, interval);
+			}
+		}
+
+		function stopTimer() {
+			if (autoPlayTimer) {
+				clearInterval(autoPlayTimer);
+				autoPlayTimer = null;
+			}
+		}
+
+		function resetTimer() {
+			stopTimer();
+			startTimer();
+		}
+
+		container.querySelector(".prev")?.addEventListener("click", (e) => {
 			e.preventDefault();
 			showSlide(currentIndex - 1);
 		});
 
-		nextBtn?.addEventListener("click", (e) => {
+		container.querySelector(".next")?.addEventListener("click", (e) => {
 			e.preventDefault();
 			showSlide(currentIndex + 1);
 		});
@@ -181,6 +211,13 @@ const { images, id } = Astro.props;
 				showSlide(index);
 			});
 		});
+
+		// Pause on hover
+		container.addEventListener("mouseenter", stopTimer);
+		container.addEventListener("mouseleave", startTimer);
+
+		// Initial start
+		startTimer();
 	}
 
 	// Initialize on page load
