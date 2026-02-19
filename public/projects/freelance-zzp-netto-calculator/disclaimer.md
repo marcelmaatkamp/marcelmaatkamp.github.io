@@ -31,7 +31,7 @@ We reserve the right, at our sole discretion, to modify or replace these Terms a
 
 ## 6. Contact Us
 If you have any questions about these Terms, please contact us at:
-[marcel@maatkamp.nl](mailto:marcel@maatkamp.nl)
+[m.maatkamp@gmail.com](mailto:m.maatkamp@gmail.com)
 
 ---
 © 2026 Marcel Maatkamp. All rights reserved.
