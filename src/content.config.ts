@@ -20,6 +20,7 @@ const projects = defineCollection({
         description: z.string(),
         pubDate: z.coerce.date(),
         heroImage: z.string().optional(),
+        images: z.array(z.string()).optional(),
         platform: z.string().optional(), // Android, Web, etc.
         link: z.string().optional(),
         tags: z.array(z.string()).optional(),

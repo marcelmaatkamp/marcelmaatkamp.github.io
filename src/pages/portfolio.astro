@@ -1,8 +1,9 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import { getCollection } from 'astro:content';
+import Layout from "../layouts/Layout.astro";
+import { getCollection } from "astro:content";
+import Carousel from "../components/Carousel.astro";
 
-const projects = (await getCollection('projects')).sort(
+const projects = (await getCollection("projects")).sort(
 	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
 );
 ---
@@ -12,34 +13,65 @@ const projects = (await getCollection('projects')).sort(
 		<div class="container">
 			<h1 class="page-title">Portfolio</h1>
 			<p class="page-subtitle">Apps, websites, and experiments.</p>
-			
+
 			<div class="project-grid">
-				{projects.map((project) => (
-					<div class="project-card card">
-						{project.data.heroImage && (
-							<a href={project.data.link} target="_blank" class="project-image-link">
-								<img src={project.data.heroImage} alt={project.data.title} class="project-image" />
-							</a>
-						)}
-						<div class="project-content">
-							<div class="project-header">
-								<h3>{project.data.title}</h3>
-								{project.data.platform && <span class="platform-badge">{project.data.platform}</span>}
-							</div>
-							<p>{project.data.description}</p>
-							<div class="project-footer">
-								<div class="tags">
-									{project.data.tags?.map((tag) => (
-										<span class="tag">{tag}</span>
-									))}
+				{
+					projects.map((project) => (
+						<div class="project-card card">
+							{project.data.images &&
+							project.data.images.length > 0 ? (
+								<Carousel
+									images={project.data.images}
+									id={`carousel-${project.id.replace(
+										/\//g,
+										"-"
+									)}`}
+								/>
+							) : (
+								project.data.heroImage && (
+									<a
+										href={project.data.link}
+										target="_blank"
+										class="project-image-link"
+									>
+										<img
+											src={project.data.heroImage}
+											alt={project.data.title}
+											class="project-image"
+										/>
+									</a>
+								)
+							)}
+							<div class="project-content">
+								<div class="project-header">
+									<h3>{project.data.title}</h3>
+									{project.data.platform && (
+										<span class="platform-badge">
+											{project.data.platform}
+										</span>
+									)}
 								</div>
-								{project.data.link && (
-									<a href={project.data.link} target="_blank" class="btn btn-sm">View</a>
-								)}
+								<p>{project.data.description}</p>
+								<div class="project-footer">
+									<div class="tags">
+										{project.data.tags?.map((tag) => (
+											<span class="tag">{tag}</span>
+										))}
+									</div>
+									{project.data.link && (
+										<a
+											href={project.data.link}
+											target="_blank"
+											class="btn btn-sm"
+										>
+											View
+										</a>
+									)}
+								</div>
 							</div>
 						</div>
-					</div>
-				))}
+					))
+				}
 			</div>
 		</div>
 	</section>

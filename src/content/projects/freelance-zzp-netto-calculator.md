@@ -3,6 +3,10 @@ title: "Freelance Netto Calculator"
 description: "Master your freelance finances with this goal-oriented net income calculator for Dutch professionals."
 pubDate: 2026-02-19
 heroImage: "/projects/freelance-zzp-netto-calculator/1_dashboard.png"
+images:
+  - "/projects/freelance-zzp-netto-calculator/1_dashboard.png"
+  - "/projects/freelance-zzp-netto-calculator/2_market.png"
+  - "/projects/freelance-zzp-netto-calculator/3_hours.png"
 platform: "Android"
 link: "https://play.google.com/store/apps/details?id=nl.marcelmaatkamp.freelancenettonl"
 tags: ["android", "finance", "zzp", "kotlin", "jetpack-compose"]

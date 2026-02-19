@@ -1,6 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import { getCollection } from "astro:content";
+import Carousel from "../components/Carousel.astro";
 
 const posts = (await getCollection("blog")).sort(
 	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
@@ -147,14 +148,25 @@ const latestPosts = posts.slice(0, 3);
 								View Project
 							</a>
 						</div>
-						{featuredProject.data.heroImage && (
-							<div class="project-image">
-								<img
-									src={featuredProject.data.heroImage}
-									alt={featuredProject.data.title}
+						<div class="project-image">
+							{featuredProject.data.images &&
+							featuredProject.data.images.length > 0 ? (
+								<Carousel
+									images={featuredProject.data.images}
+									id={`carousel-featured-${featuredProject.id.replace(
+										/\//g,
+										"-"
+									)}`}
 								/>
-							</div>
-						)}
+							) : (
+								featuredProject.data.heroImage && (
+									<img
+										src={featuredProject.data.heroImage}
+										alt={featuredProject.data.title}
+									/>
+								)
+							)}
+						</div>
 					</div>
 				</div>
 			</section>
