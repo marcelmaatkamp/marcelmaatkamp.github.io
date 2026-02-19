@@ -44,6 +44,56 @@ const latestPosts = posts.slice(0, 3);
 		</div>
 	</section>
 
+	<!-- Featured Project -->
+	{
+		featuredProject && (
+			<section class="section">
+				<div class="container">
+					<h2 class="section-title">Featured Project</h2>
+					<div class="featured-project card">
+						<div class="project-content">
+							<h3>{featuredProject.data.title}</h3>
+							<p>{featuredProject.data.description}</p>
+							<div class="tags">
+								{featuredProject.data.tags?.map(
+									(tag: string) => (
+										<span class="tag">{tag}</span>
+									)
+								)}
+							</div>
+							<a
+								href={featuredProject.data.link}
+								class="btn"
+								target="_blank"
+							>
+								View Project
+							</a>
+						</div>
+						<div class="project-image">
+							{featuredProject.data.images &&
+							featuredProject.data.images.length > 0 ? (
+								<Carousel
+									images={featuredProject.data.images}
+									id={`carousel-featured-${featuredProject.id.replace(
+										/\//g,
+										"-"
+									)}`}
+								/>
+							) : (
+								featuredProject.data.heroImage && (
+									<img
+										src={featuredProject.data.heroImage}
+										alt={featuredProject.data.title}
+									/>
+								)
+							)}
+						</div>
+					</div>
+				</div>
+			</section>
+		)
+	}
+
 	<!-- Tech Stack Section -->
 	<section class="section tech-stack">
 		<div class="container">
@@ -122,56 +172,6 @@ const latestPosts = posts.slice(0, 3);
 			</div>
 		</div>
 	</section>
-
-	<!-- Featured Project -->
-	{
-		featuredProject && (
-			<section class="section">
-				<div class="container">
-					<h2 class="section-title">Featured Project</h2>
-					<div class="featured-project card">
-						<div class="project-content">
-							<h3>{featuredProject.data.title}</h3>
-							<p>{featuredProject.data.description}</p>
-							<div class="tags">
-								{featuredProject.data.tags?.map(
-									(tag: string) => (
-										<span class="tag">{tag}</span>
-									)
-								)}
-							</div>
-							<a
-								href={featuredProject.data.link}
-								class="btn"
-								target="_blank"
-							>
-								View Project
-							</a>
-						</div>
-						<div class="project-image">
-							{featuredProject.data.images &&
-							featuredProject.data.images.length > 0 ? (
-								<Carousel
-									images={featuredProject.data.images}
-									id={`carousel-featured-${featuredProject.id.replace(
-										/\//g,
-										"-"
-									)}`}
-								/>
-							) : (
-								featuredProject.data.heroImage && (
-									<img
-										src={featuredProject.data.heroImage}
-										alt={featuredProject.data.title}
-									/>
-								)
-							)}
-						</div>
-					</div>
-				</div>
-			</section>
-		)
-	}
 
 	<!-- Latest Posts -->
 	<section class="section">
