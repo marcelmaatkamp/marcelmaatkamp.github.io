@@ -27,4 +27,4 @@ De **Freelance Netto Calculator** is dé tool voor de Nederlandse ZZP’er die g
 ![Market & Tools](/projects/freelance-zzp-netto-calculator/2_market.png)
 ![Hours Tracker](/projects/freelance-zzp-netto-calculator/3_hours.png)
 
-[Privacy Policy](/projects/freelance-zzp-netto-calculator/freelance-zzp-netto-calculator-privacy-policy.md)
+[Privacy Policy](/projects/freelance-zzp-netto-calculator/privacy-policy.md)
