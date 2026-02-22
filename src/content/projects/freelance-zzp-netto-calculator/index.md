@@ -2,11 +2,14 @@
 title: "Freelance Netto Calculator"
 description: "Master your freelance finances with this goal-oriented net income calculator for Dutch professionals."
 pubDate: 2026-02-19
-heroImage: "/projects/freelance-zzp-netto-calculator/1_dashboard.png"
+heroImage: "/projects/freelance-zzp-netto-calculator/01_store_dashboard.png"
 images:
-  - "/projects/freelance-zzp-netto-calculator/1_dashboard.png"
-  - "/projects/freelance-zzp-netto-calculator/2_market.png"
-  - "/projects/freelance-zzp-netto-calculator/3_hours.png"
+  - "/projects/freelance-zzp-netto-calculator/01_store_dashboard.png"
+  - "/projects/freelance-zzp-netto-calculator/02_store_registratie.png"
+  - "/projects/freelance-zzp-netto-calculator/03_store_berekening.png"
+  - "/projects/freelance-zzp-netto-calculator/04_store_tools.png"
+  - "/projects/freelance-zzp-netto-calculator/05_store_kalender.png"
+  - "/projects/freelance-zzp-netto-calculator/06_store_setup.png"
 platform: "Android"
 link: "https://play.google.com/store/apps/details?id=nl.marcelmaatkamp.freelancenettonl"
 tags: ["android", "finance", "zzp", "kotlin", "jetpack-compose"]
@@ -23,9 +26,12 @@ De **Freelance Netto Calculator** is dé tool voor de Nederlandse ZZP’er die g
 - **Nederlandse Belastingregels**: Volledige ondersteuning voor ondernemersaftrek, MKB-winstvrijstelling en KOR.
 
 ### Screenshots
-![Dashboard](/projects/freelance-zzp-netto-calculator/1_dashboard.png)
-![Market & Tools](/projects/freelance-zzp-netto-calculator/2_market.png)
-![Hours Tracker](/projects/freelance-zzp-netto-calculator/3_hours.png)
+![Dashboard](/projects/freelance-zzp-netto-calculator/01_store_dashboard.png)
+![Registratie](/projects/freelance-zzp-netto-calculator/02_store_registratie.png)
+![Berekening](/projects/freelance-zzp-netto-calculator/03_store_berekening.png)
+![Tools](/projects/freelance-zzp-netto-calculator/04_store_tools.png)
+![Kalender](/projects/freelance-zzp-netto-calculator/05_store_kalender.png)
+![Setup](/projects/freelance-zzp-netto-calculator/06_store_setup.png)
 
 ### Juridische Informatie
 - [Privacy Policy](https://marcelmaatkamp.github.io/projects/freelance-zzp-netto-calculator/privacy-policy.html)
