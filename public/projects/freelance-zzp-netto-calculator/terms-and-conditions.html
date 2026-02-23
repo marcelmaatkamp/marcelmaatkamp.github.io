@@ -1,119 +1,192 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="nl">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Terms and Conditions - Freelance Netto Calculator</title>
+    <title>Algemene Voorwaarden - Freelance Netto Calculator</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Outfit:wght@400;600;700&display=swap"
+        rel="stylesheet">
     <style>
+        :root {
+            --bg-dark: #0F172A;
+            --surface-dark: #1E293B;
+            --accent-green: #10B981;
+            --accent-green-dark: #059669;
+            --text-primary: #F8FAFC;
+            --text-secondary: #94A3B8;
+            --text-muted: #64748B;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            max-width: 800px;
-            margin: 0 auto;
+            font-family: 'Inter', sans-serif;
+            line-height: 1.7;
+            color: var(--text-secondary);
+            background-color: var(--bg-dark);
             padding: 40px 20px;
-            background-color: #f9f9f9;
+        }
+
+        h1,
+        h2,
+        h3 {
+            font-family: 'Outfit', sans-serif;
+            color: var(--text-primary);
+            font-weight: 700;
         }
 
         .container {
-            background: white;
-            padding: 40px;
-            border-radius: 12px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            max-width: 850px;
+            margin: 0 auto;
+            background: var(--surface-dark);
+            padding: 60px;
+            border-radius: 32px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.05);
         }
 
         h1 {
-            color: #0df233;
-            margin-top: 0;
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, var(--accent-green) 0%, #34D399 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: -0.02em;
+        }
+
+        .last-updated {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 3rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
         }
 
         h2 {
-            border-bottom: 2px solid #eee;
-            padding-bottom: 10px;
-            margin-top: 30px;
-            color: #102213;
+            font-size: 1.5rem;
+            margin: 2.5rem 0 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
         }
 
-        h3 {
-            color: #102213;
+        h2::before {
+            content: '';
+            display: inline-block;
+            width: 8px;
+            height: 24px;
+            background: var(--accent-green);
+            margin-right: 15px;
+            border-radius: 4px;
+        }
+
+        p {
+            margin-bottom: 1.2rem;
+        }
+
+        ul {
+            margin: 1.5rem 0;
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 0.8rem;
+        }
+
+        strong {
+            color: var(--text-primary);
+            font-weight: 600;
         }
 
         .footer {
-            margin-top: 50px;
+            margin-top: 60px;
             text-align: center;
-            font-size: 0.9em;
-            color: #666;
+            font-size: 0.85rem;
+            color: var(--text-muted);
         }
 
         a {
-            color: #0df233;
+            color: var(--accent-green);
             text-decoration: none;
+            transition: color 0.2s ease;
         }
 
         a:hover {
+            color: #34D399;
             text-decoration: underline;
+        }
+
+        @media (max-width: 640px) {
+            .container {
+                padding: 30px 20px;
+            }
+
+            h1 {
+                font-size: 1.9rem;
+            }
         }
     </style>
 </head>
 
 <body>
     <div class="container">
-        <h1>Terms and Conditions</h1>
-        <p>Last updated: February 19, 2026</p>
+        <h1>Algemene Voorwaarden</h1>
+        <p class="last-updated">Laatst bijgewerkt: 23 februari 2026</p>
 
-        <p>Please read these Terms and Conditions ("Terms", "Terms and Conditions") carefully before using the Freelance
-            Netto Calculator mobile application (the "Service") operated by Marcel Maatkamp ("us", "we", or "our").</p>
+        <p>Lees deze algemene voorwaarden ("Voorwaarden", "Algemene Voorwaarden") zorgvuldig door voordat u de
+            <strong>Freelance Netto Calculator</strong> mobiele applicatie (de "Service") gebruikt, beheerd door Marcel
+            Maatkamp ("wij", "ons" of "onze").</p>
 
-        <p>Your access to and use of the Service is conditioned on your acceptance of and compliance with these Terms.
-            These Terms apply to all visitors, users, and others who access or use the Service.</p>
+        <p>Uw toegang tot en gebruik van de Service is afhankelijk van uw aanvaarding van en naleving van deze
+            Voorwaarden. Deze Voorwaarden zijn van toepassing op alle bezoekers, gebruikers en anderen die toegang
+            hebben tot of gebruik maken van de Service.</p>
 
-        <p>By accessing or using the Service you agree to be bound by these Terms. If you disagree with any part of the
-            terms then you may not access the Service.</p>
+        <p>Door toegang te krijgen tot of gebruik te maken van de Service gaat u ermee akkoord gebonden te zijn aan deze
+            Voorwaarden. Als u het niet eens bent met een deel van de voorwaarden, mag u de Service niet gebruiken.</p>
 
-        <h2>1. Disclaimer</h2>
-        <p>The Service is intended for informational and educational purposes only. The calculations provided by the
-            Service are estimates based on standard tax rules and benchmarks. They do not constitute professional
-            financial, tax, or legal advice.</p>
-        <p>We do not guarantee the accuracy, completeness, or reliability of any results. Users should consult with a
-            qualified financial advisor or accountant for their specific situation.</p>
+        <h2>1. Gebruik van de Dienst</h2>
+        <p>De Service is uitsluitend bedoeld voor informatieve en educatieve doeleinden. De berekeningen geleverd door
+            de Service zijn schattingen op basis van standaard belastingregels. Ze vormen geen officieel financieel,
+            fiscaal of juridisch advies.</p>
 
-        <h2>2. Purchases</h2>
-        <p>If you wish to purchase any product or service made available through the Service ("Purchase"), you may be
-            asked to supply certain information relevant to your Purchase including, without limitation, your credit
-            card number, the expiration date of your credit card, your billing address, and your shipping information.
-        </p>
-        <p>The Service may employ the use of third party services for the purpose of facilitating payment and the
-            completion of Purchases. By submitting your information, you grant us the right to provide the information
-            to these third parties subject to our Privacy Policy.</p>
+        <h2>2. Aankopen</h2>
+        <p>Indien u een product of dienst wenst aan te schaffen die via de Service beschikbaar wordt gesteld
+            ("Aankoop"), kan u gevraagd worden bepaalde informatie te verstrekken die relevant is voor uw Aankoop,
+            inclusief maar niet beperkt tot uw betaalinformatie.</p>
+        <p>De Service maakt gebruik van diensten van derden (zoals Google Play Billing) voor het faciliteren van
+            betalingen. Door uw gegevens op te geven, verleent u ons het recht om deze informatie aan deze derden te
+            verstrekken, onderworpen aan ons Privacybeleid.</p>
 
-        <h2>3. Content</h2>
-        <p>Our Service allows you to input, store, share and otherwise make available certain information, text,
-            graphics, videos, or other material ("Content"). You are responsible for the Content that you post to the
-            Service, including its legality, reliability, and appropriateness.</p>
+        <h2>3. Inhoud en Gegevens</h2>
+        <p>Onze Service stelt u in staat om bepaalde informatie, tekst of andere materialen ("Inhoud") in te voeren, op
+            te slaan en te delen. U bent zelf verantwoordelijk voor de Inhoud die u in de Service plaatst, inclusief de
+            rechtmatigheid, betrouwbaarheid en geschiktheid hiervan.</p>
 
-        <h2>4. Links To Other Web Sites</h2>
-        <p>Our Service may contain links to third-party web sites or services that are not owned or controlled by Marcel
-            Maatkamp.</p>
-        <p>Marcel Maatkamp has no control over, and assumes no responsibility for, the content, privacy policies, or
-            practices of any third party web sites or services. You further acknowledge and agree that Marcel Maatkamp
-            shall not be responsible or liable, directly or indirectly, for any damage or loss caused or alleged to be
-            caused by or in connection with use of or reliance on any such content, goods or services available on or
-            through any such web sites or services.</p>
+        <h2>4. Koppelingen naar Andere Websites</h2>
+        <p>Onze Service kan links bevatten naar websites of diensten van derden die niet het eigendom zijn van of
+            beheerd worden door Marcel Maatkamp. Wij hebben geen controle over, en aanvaarden geen verantwoordelijkheid
+            voor, de inhoud of het privacybeleid van deze derden.</p>
 
-        <h2>5. Changes</h2>
-        <p>We reserve the right, at our sole discretion, to modify or replace these Terms at any time. If a revision is
-            material we will try to provide at least 30 days' notice prior to any new terms taking effect. What
-            constitutes a material change will be determined at our sole discretion.</p>
+        <h2>5. Wijzigingen</h2>
+        <p>Wij behouden ons het recht voor om, naar eigen goeddunken, deze Voorwaarden op elk moment te wijzigen of te
+            vervangen. Indien een herziening essentieel is, zullen wij proberen dit vooraf aan te kondigen. Wat een
+            essentiële wijziging is, wordt door ons bepaald.</p>
 
-        <h2>6. Contact Us</h2>
-        <p>If you have any questions about these Terms, please contact us at:<br>
-            <a href="mailto:m.maatkamp@gmail.com">m.maatkamp@gmail.com</a>
+        <h2>6. Contact</h2>
+        <p>Heeft u vragen over deze Algemene Voorwaarden? Neem contact op via:<br>
+            <a href="mailto:marcel@maatkamp.nl">marcel@maatkamp.nl</a>
         </p>
     </div>
 
     <div class="footer">
-        &copy; 2026 Marcel Maatkamp. All rights reserved.
+        &copy; 2026 Marcel Maatkamp. Alle rechten voorbehouden.
     </div>
 </body>
 

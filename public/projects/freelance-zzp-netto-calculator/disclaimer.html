@@ -1,58 +1,135 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="nl">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Disclaimer - Freelance Netto Calculator</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Outfit:wght@400;600;700&display=swap"
+        rel="stylesheet">
     <style>
+        :root {
+            --bg-dark: #0F172A;
+            --surface-dark: #1E293B;
+            --accent-green: #10B981;
+            --accent-green-dark: #059669;
+            --text-primary: #F8FAFC;
+            --text-secondary: #94A3B8;
+            --text-muted: #64748B;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            max-width: 800px;
-            margin: 0 auto;
+            font-family: 'Inter', sans-serif;
+            line-height: 1.7;
+            color: var(--text-secondary);
+            background-color: var(--bg-dark);
             padding: 40px 20px;
-            background-color: #f9f9f9;
+        }
+
+        h1,
+        h2,
+        h3 {
+            font-family: 'Outfit', sans-serif;
+            color: var(--text-primary);
+            font-weight: 700;
         }
 
         .container {
-            background: white;
-            padding: 40px;
-            border-radius: 12px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            max-width: 850px;
+            margin: 0 auto;
+            background: var(--surface-dark);
+            padding: 60px;
+            border-radius: 32px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.05);
         }
 
         h1 {
-            color: #0df233;
-            margin-top: 0;
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, var(--accent-green) 0%, #34D399 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: -0.02em;
+        }
+
+        .last-updated {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 3rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
         }
 
         h2 {
-            border-bottom: 2px solid #eee;
-            padding-bottom: 10px;
-            margin-top: 30px;
-            color: #102213;
+            font-size: 1.5rem;
+            margin: 2.5rem 0 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
         }
 
-        h3 {
-            color: #102213;
+        h2::before {
+            content: '';
+            display: inline-block;
+            width: 8px;
+            height: 24px;
+            background: var(--accent-green);
+            margin-right: 15px;
+            border-radius: 4px;
+        }
+
+        p {
+            margin-bottom: 1.2rem;
+        }
+
+        strong {
+            color: var(--text-primary);
+            font-weight: 600;
         }
 
         .footer {
-            margin-top: 50px;
+            margin-top: 60px;
             text-align: center;
-            font-size: 0.9em;
-            color: #666;
+            font-size: 0.85rem;
+            color: var(--text-muted);
         }
 
         a {
-            color: #0df233;
+            color: var(--accent-green);
             text-decoration: none;
+            transition: color 0.2s ease;
         }
 
         a:hover {
+            color: #34D399;
             text-decoration: underline;
+        }
+
+        .caution-box {
+            background: rgba(245, 158, 11, 0.05);
+            border-left: 4px solid #F59E0B;
+            padding: 24px;
+            border-radius: 0 16px 16px 0;
+            margin: 2rem 0;
+        }
+
+        @media (max-width: 640px) {
+            .container {
+                padding: 30px 20px;
+            }
+
+            h1 {
+                font-size: 2.2rem;
+            }
         }
     </style>
 </head>
@@ -60,31 +137,47 @@
 <body>
     <div class="container">
         <h1>Disclaimer</h1>
-        <p>Last updated: February 19, 2026</p>
+        <p class="last-updated">Laatst bijgewerkt: 23 februari 2026</p>
 
-        <p>Please read this Disclaimer carefully before using the Freelance Netto Calculator mobile application (the "Service") operated by Marcel Maatkamp ("us", "we", or "our").</p>
+        <p>Lees deze disclaimer zorgvuldig door voordat u de <strong>Freelance Netto Calculator</strong> mobiele
+            applicatie (de "Service") gebruikt, beheerd door Marcel Maatkamp ("wij", "ons" of "onze").</p>
 
-        <h2>1. Accuracy and Reliability</h2>
-        <p>The Service is intended for informational and educational purposes only. The calculations provided by the Service are estimates based on standard tax rules and benchmarks for the Dutch fiscal year 2026. They do not constitute professional financial, tax, or legal advice.</p>
-        <p>While we strive for accuracy, we do not guarantee the completeness or reliability of any results. Tax laws are complex and subject to change. Users should always consult with a qualified financial advisor, accountant, or the Dutch Tax Authorities (Belastingdienst) for their specific situation.</p>
+        <div class="caution-box">
+            <p><strong>Let op:</strong> De berekeningen in deze app zijn uitsluitend bedoeld voor informatieve en
+                educatieve doeleinden. Ze vormen geen officieel financieel, fiscaal of juridisch advies.</p>
+        </div>
 
-        <h2>2. No Professional Relationship</h2>
-        <p>Your use of the Service does not create a professional-client relationship between you and Marcel Maatkamp. We are not responsible for any financial decisions or tax filings made based on the information provided by this App.</p>
+        <h2>1. Nauwkeurigheid en Betrouwbaarheid</h2>
+        <p>De Service is bedoeld als hulpmiddel. De berekeningen zijn schattingen gebaseerd op de standaard
+            belastingregels en benchmarks voor het Nederlandse fiscale jaar 2026.</p>
+        <p>Hoewel we streven naar uiterste nauwkeurigheid, garanderen we niet de volledigheid of betrouwbaarheid van de
+            resultaten. Belastingwetgeving is complex en onderhevig aan verandering. Gebruikers dienen altijd een
+            gekwalificeerd financieel adviseur, accountant of de Belastingdienst te raadplegen voor hun specifieke
+            situatie.</p>
 
-        <h2>3. Third-Party Links</h2>
-        <p>Our Service may contain links to third-party web sites or services that are not owned or controlled by us. We assume no responsibility for the content, privacy policies, or practices of any third party.</p>
+        <h2>2. Geen Professionele Relatie</h2>
+        <p>Uw gebruik van de Service creëert geen professionele cliëntrelatie tussen u en Marcel Maatkamp. Wij zijn niet
+            verantwoordelijk voor financiële beslissingen of belastingaangiften die worden gedaan op basis van de
+            informatie verstrekt door deze App.</p>
 
-        <h2>4. Limitation of Liability</h2>
-        <p>In no event shall Marcel Maatkamp be liable for any special, direct, indirect, consequential, or incidental damages or any damages whatsoever, whether in an action of contract, negligence or other tort, arising out of or in connection with the use of the Service or the contents of the Service.</p>
+        <h2>3. Links van Derden</h2>
+        <p>Onze Service kan links bevatten naar websites of diensten van derden die niet het eigendom zijn van of
+            beheerd worden door ons. Wij aanvaarden geen verantwoordelijkheid voor de inhoud, het privacybeleid of de
+            praktijken van derden.</p>
 
-        <h2>5. Contact Us</h2>
-        <p>If you have any questions about this Disclaimer, please contact us at:<br>
-            <a href="mailto:m.maatkamp@gmail.com">m.maatkamp@gmail.com</a>
+        <h2>4. Beperking van Aansprakelijkheid</h2>
+        <p>In geen geval is Marcel Maatkamp aansprakelijk voor enige speciale, directe, indirecte, gevolg- of
+            incidentele schade of welke schade dan ook, voortvloeiend uit of in verband met het gebruik van de Service
+            of de inhoud hiervan.</p>
+
+        <h2>5. Contact</h2>
+        <p>Heeft u vragen over deze disclaimer? Neem contact op via:<br>
+            <a href="mailto:marcel@maatkamp.nl">marcel@maatkamp.nl</a>
         </p>
     </div>
 
     <div class="footer">
-        &copy; 2026 Marcel Maatkamp. All rights reserved.
+        &copy; 2026 Marcel Maatkamp. Alle rechten voorbehouden.
     </div>
 </body>
 

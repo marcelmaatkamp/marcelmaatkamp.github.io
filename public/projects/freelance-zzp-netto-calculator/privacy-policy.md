@@ -1,39 +1,42 @@
-# Privacy Policy - Freelance Netto Calculator
+# Privacybeleid - Freelance Netto Calculator
 
-**Last updated: February 18, 2026**
+**Laatst bijgewerkt: 23 februari 2026**
 
-Marcel Maatkamp ("we", "our", or "us") operates the **Freelance Netto Calculator** (the "App"). This page informs you of our policies regarding the collection, use, and disclosure of personal data when you use our App.
+Marcel Maatkamp ("wij", "onze" of "ons") beheert de **Freelance Netto Calculator** (de "App"). Dit document legt uit hoe wij omgaan met uw gegevens, met speciale aandacht voor uw privacy en veiligheid in overeenstemming met de Google Play-richtlijnen.
 
-## 1. Information Collection and Use
-The App is designed to perform financial calculations locally on your device. We do not collect or store your personal financial information on our servers.
+## 1. Gegevensverzameling en Gebruik
 
-### Types of Data Collected
+### Lokale Opslag
+De App is primair ontworpen om financiële berekeningen lokaal op uw apparaat uit te voeren. Standaard worden uw uren, facturen en instellingen veilig opgeslagen in een lokale database op uw telefoon.
 
-#### a. Personal Data
-While using our App, we do not ask you to provide us with any personally identifiable information. All financial data you enter is stored **locally** on your device and is not transmitted to us.
+### Gebruikersgegevens
+Voor een optimale ervaring biedt de App de volgende functies waarvoor gegevens worden verwerkt:
+*   **Financiële Gegevens:** Urenregistraties, uurtarieven, kosten en factuurgegevens. Deze zijn essentieel voor de kernfunctionaliteit van de app.
+*   **Identiteit:** Wanneer u gebruik maakt van Cloud Synchronisatie, gebruiken we uw Google-account voor verificatie.
 
-#### b. Usage Data
-We may collect information that your device sends whenever you use the App. This is primarily collected by third-party services as detailed below.
+## 2. Cloud Synchronisatie & Google Sign-In
+Als u ervoor kiest om in te loggen met Google, maken we gebruik van **Firebase (Google Cloud)** om uw gegevens te synchroniseren tussen apparaten. Dit is een optionele functie.
 
-## 2. Third-Party Service Providers
-We use third-party services that may collect information used to identify you:
+*   **Doel:** Back-up van uw gegevens en synchronisatie tussen meerdere apparaten.
+*   **Beveiliging:** Gegevens worden versleuteld verzonden en opgeslagen via de beveiligde infrastructuur van Google Firebase.
+*   **Beperkt Gebruik:** Wij hebben geen handmatige toegang tot uw persoonlijke financiële data; de synchronisatie vindt volledig geautomatiseerd plaats.
 
-- **Google Play Services**: For core app functionality.
-- **AdMob (Google)**: To display advertisements. AdMob may use device identifiers to show personalized ads.
-- **Google Play Billing**: Payment processing for the "Pro" version.
+## 3. Services van Derden
+Wij maken gebruik van betrouwbare partners voor specifieke functies:
+*   **Google Play Services:** Voor de basiswerking van de Android-app.
+*   **AdMob (Google):** Voor het tonen van advertenties. AdMob kan apparaat-ID's gebruiken voor relevante advertenties.
+*   **Google Play Billing:** Voor het veilig verwerken van aankopen ("Pro" versie).
+*   **Firebase Analytics:** Om anonieme gebruiksstatistieken te verzamelen die ons helpen de app te verbeteren.
 
-## 3. Data Storage
-All user-entered data is stored locally on your device. You are responsible for the security of your device.
+## 4. Uw Rechten en Gegevensverwijdering
+U heeft volledige controle over uw data:
+*   **Inzien/Wijzigen:** U kunt alle gegevens direct in de app inzien en aanpassen.
+*   **Verwijderen:** U kunt individuele items verwijderen. Als u uw account/cloud-data volledig wilt wissen, kunt u dit doen via de instellingen in de app of door contact met ons op te nemen.
+*   **Lokale Data:** Door de app te verwijderen, wordt alle lokaal opgeslagen data gewist.
 
-## 4. Children's Privacy
-Our App does not address anyone under the age of 13. We do not knowingly collect personally identifiable information from children under 13.
-
-## 5. Changes to This Privacy Policy
-We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page.
-
-## 6. Contact Us
-If you have any questions about this Privacy Policy, please contact us at:
-[m.maatkamp@gmail.com](mailto:m.maatkamp@gmail.com)
+## 5. Contact
+Heeft u vragen over dit beleid? Neem contact op via:
+[marcel@maatkamp.nl](mailto:marcel@maatkamp.nl)
 
 ---
-© 2026 Marcel Maatkamp. All rights reserved.
+© 2026 Marcel Maatkamp. Ontworpen voor professionals.
