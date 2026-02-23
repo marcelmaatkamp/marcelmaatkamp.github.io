@@ -36,7 +36,7 @@ U heeft volledige controle over uw data:
 
 ## 5. Contact
 Heeft u vragen over dit beleid? Neem contact op via:
-[marcel@maatkamp.nl](mailto:marcel@maatkamp.nl)
+[m.maatkamp@gmail.com](mailto:m.maatkamp@gmail.com)
 
 ---
 © 2026 Marcel Maatkamp. Ontworpen voor professionals.

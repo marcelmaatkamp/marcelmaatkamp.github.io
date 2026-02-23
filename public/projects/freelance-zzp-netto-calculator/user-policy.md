@@ -22,7 +22,7 @@ Voordat de app start met het verzenden van gevoelige gegevens (zoals uw financiÃ
 U heeft het recht om vergeten te worden. U kunt uw gesynchroniseerde data op elk moment wissen via de instellingen in de app. Hiermee worden alle aan uw account gekoppelde gegevens onmiddellijk en definitief verwijderd uit onze cloud-database.
 
 ## Vragen?
-Neem direct contact op met de ontwikkelaar via [marcel@maatkamp.nl](mailto:marcel@maatkamp.nl) voor hulp bij gegevensverwijdering of privacyvragen.
+Neem direct contact op met de ontwikkelaar via [m.maatkamp@gmail.com](mailto:m.maatkamp@gmail.com) voor hulp bij gegevensverwijdering of privacyvragen.
 
 ---
 Â© 2026 Marcel Maatkamp. Gebouwd met oog voor uw privacy.
