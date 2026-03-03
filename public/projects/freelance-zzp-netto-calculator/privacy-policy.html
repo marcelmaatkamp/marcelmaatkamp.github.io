@@ -155,9 +155,10 @@
 
         <h2>1. Gegevensverzameling en Gebruik</h2>
         <div class="card">
-            <p><strong>Lokale Opslag:</strong> De App is primair ontworpen om financiële berekeningen lokaal op uw
-                apparaat uit te voeren. Standaard worden uw uren, facturen en instellingen veilig opgeslagen in een
-                lokale database op uw telefoon.</p>
+            <p><strong>Local-First:</strong> De App is ontworpen als een <strong>Local-First</strong> applicatie. Dit
+                betekent dat alle financiële gegevens die u invoert (zoals uren, facturen, projecten en instellingen)
+                uitsluitend op uw eigen apparaat worden opgeslagen. Wij beheren geen centrale database en hebben geen
+                toegang tot uw financiële data.</p>
         </div>
 
         <h3>Gebruikersgegevens</h3>
@@ -169,26 +170,24 @@
                 Google-account voor verificatie.</li>
         </ul>
 
-        <h2>2. Cloud Synchronisatie & Google Sign-In</h2>
-        <p>Als u ervoor kiest om in te loggen met Google, maken we gebruik van <strong>Firebase (Google Cloud)</strong>
-            om uw gegevens te synchroniseren tussen apparaten. Dit is een optionele functie.</p>
+        <h2>2. Cloud Back-up (Google Drive Sync)</h2>
+        <p>Indien u de optionele back-up functie activeert, maakt de App een versleutelde reservekopie van uw lokale
+            data naar een afgeschermde map op <strong>uw eigen Google Drive account</strong>.</p>
         <ul>
-            <li><strong>Doel:</strong> Back-up van uw gegevens en synchronisatie tussen meerdere apparaten.</li>
-            <li><strong>Beveiliging:</strong> Gegevens worden versleuteld verzonden en opgeslagen via de beveiligde
-                infrastructuur van Google Firebase.</li>
-            <li><strong>Beperkt Gebruik:</strong> Wij hebben geen handmatige toegang tot uw persoonlijke financiële
-                data; de synchronisatie vindt volledig geautomatiseerd plaats.</li>
+            <li><strong>Doel:</strong> Veiligstellen van uw gegevens bij verlies van uw telefoon of overstap naar een
+                nieuw toestel.</li>
+            <li><strong>Privacy:</strong> De data blijft binnen uw persoonlijke Google-omgeving. Wij hebben geen toegang
+                tot uw Google Drive of de opgeslagen bestanden.</li>
+            <li><strong>Beheer:</strong> U kunt de synchronisatie op elk moment stoppen en de data verwijderen via de
+                app of uw Google-accountinstellingen.</li>
         </ul>
 
         <h2>3. Services van Derden</h2>
         <p>Wij maken gebruik van betrouwbare partners voor specifieke functies:</p>
         <ul>
             <li><strong>Google Play Services:</strong> Voor de basiswerking van de Android-app.</li>
-            <li><strong>AdMob (Google):</strong> Voor het tonen van advertenties. AdMob kan apparaat-ID's gebruiken voor
-                relevante advertenties.</li>
-            <li><strong>Google Play Billing:</strong> Voor het veilig verwerken van aankopen ("Pro" versie).</li>
-            <li><strong>Firebase Analytics:</strong> Om anonieme gebruiksstatistieken te verzamelen die ons helpen de
-                app te verbeteren.</li>
+            <li><strong>AdMob (Google):</strong> Voor het tonen van advertenties in de gratis versie.</li>
+            <li><strong>Google Play Billing:</strong> Voor het veilig verwerken van Premium aankopen.</li>
         </ul>
 
         <h2>4. Uw Rechten en Gegevensverwijdering</h2>
