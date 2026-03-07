@@ -21,7 +21,7 @@ const projects = defineCollection({
         pubDate: z.coerce.date(),
         heroImage: z.string().optional(),
         images: z.array(z.string()).optional(),
-        platform: z.string().optional(), // Android, Web, etc.
+        platform: z.string().optional(),
         link: z.string().optional(),
         tags: z.array(z.string()).optional(),
     }),
@@ -34,7 +34,7 @@ const ebooks = defineCollection({
         description: z.string(),
         pubDate: z.coerce.date(),
         coverImage: z.string().optional(),
-        file: z.string().optional(), // Path to the file in public/
+        file: z.string().optional(),
     }),
 });
 
