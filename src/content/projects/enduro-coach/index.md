@@ -1,6 +1,6 @@
 ---
 title: "Enduro Coach"
-description: "Android app for ultramarathon athletes to manage nutrition and rest intervals during long-distance running events"
+description: "Your ultramarathon companion — track nutrition intervals, rest periods, and sync with Strava, Polar and Garmin during long-distance events."
 pubDate: 2024-01-01
 heroImage: "/projects/enduro-coach/hero.png"
 platform: "Android"
@@ -8,61 +8,25 @@ link: "https://play.google.com/store/apps/details?id=nl.marcelmaatkamp.endurocoa
 tags: ["running", "ultramarathon", "nutrition", "fitness", "android"]
 ---
 
-# Privacy Statement
+**Enduro Coach** is built for ultramarathon and endurance athletes who want to take full control of their nutrition, rest, and training data during long-distance events. Whether you're tackling a 50K trail or a multi-day ultra, Enduro Coach keeps you on schedule.
 
-## Overview
-Enduro Coach is an Android app designed for ultramarathon and endurance athletes. This privacy statement explains what data we collect, why we need it, and how we protect your privacy.
+### Key Features
 
-## What Data We Collect
+- **Nutrition & Rest Intervals** — Set custom feeding and rest timers with clear audio alerts so you stay fuelled without losing focus on the trail.
+- **Live GPS Tracking** — Continuous route logging with pace, distance, and elevation data during active sessions.
+- **Heart Rate Integration** — Connect via Bluetooth to calculate training load and get personalised nutrition recommendations.
+- **Platform Sync** — OAuth-based integration with Strava, Polar, and Garmin to import and export your training data.
+- **Local-First Storage** — All personal data stays on your device. No cloud account required.
 
-### Location Data (GPS)
-- **Why**: To track your race route, calculate distance, and determine pace
-- **When**: Only during active races or training sessions
-- **Storage**: Locally on your device
+### Integrations
 
-### Activity Data
-- **Why**: To sync your training data with connected fitness platforms (Strava, Polar, Garmin)
-- **When**: When you connect your account via OAuth
-- **Data includes**: Distance, duration, pace, heart rate, elevation
+| Platform | Purpose |
+|----------|---------|
+| Strava | Activity sync via OAuth |
+| Polar | Training & daily activity import |
+| Garmin | Activities, summaries & sleep data |
+| Google Play Services | Crash diagnostics |
 
-### Heart Rate Data
-- **Why**: To calculate training load and recommend optimal nutrition/rest intervals
-- **When**: When connected to a heart rate monitor via Bluetooth
-- **Storage**: Locally and on connected fitness platforms
+### Legal
 
-### Nutrition Schedules
-- **Why**: To provide personalized fueling reminders during races
-- **Data**: Your custom nutrition plans (stored locally only)
-
-### Account Information
-- **Why**: To authenticate with Strava/Polar/Garmin via OAuth
-- **Data**: Basic profile info from these platforms (name, profile picture)
-
-## Third-Party Services
-
-We use the following third-party services:
-
-| Service | Purpose | Data Shared |
-|---------|---------|-------------|
-| Strava | Activity sync | Activity data via OAuth |
-| Polar | Training data import | Exercise and daily activity data |
-| Garmin | Training data import | Daily summaries, activities, sleep data |
-| Google Play Services | Crash reporting | Device/app diagnostics |
-
-## Data Storage
-
-- All personal data is stored locally on your Android device
-- OAuth tokens are stored using encrypted storage
-- You can delete all local data by clearing app cache or uninstalling
-
-## Your Rights
-
-- **Access**: You can view all data stored by the app
-- **Delete**: Uninstall the app or clear app cache to remove all data
-- **Export**: Not currently supported (future feature)
-
-## Contact
-
-For privacy questions: info@endurocoach.app
-
-Last updated: 2024-01-01
+- [Privacy Policy](https://marcelmaatkamp.github.io/projects/enduro-coach/privacy.html)
