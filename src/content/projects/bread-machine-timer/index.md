@@ -1,28 +1,43 @@
 ---
-title: "Bread Machine Timer"
-description: "Never wake up to cold bread again — set your desired finish time and the app tells you exactly when to start your bread machine."
-pubDate: 2026-02-15
-heroImage: "https://play-lh.googleusercontent.com/B04VYfgJJAHw9FOMnWCcPnwE3K6T0wq1-6_KkrX-KSR81HiMmP8Qk0k8E59UpxaPT9g=w832-h470-rw"
+title: "Artisan Timer – Bread Machine"
+description: "Stop doing the math. Tell the app when you want fresh bread — it calculates the exact delay to set on your bread machine."
+pubDate: 2026-03-26
+heroImage: "/projects/bread-machine-timer/feature_graphic.png"
+images:
+  - "/projects/bread-machine-timer/01_store_timer.png"
+  - "/projects/bread-machine-timer/02_store_recipes.png"
+  - "/projects/bread-machine-timer/03_store_widget.png"
 platform: "Android"
 link: "https://play.google.com/store/apps/details?id=com.marcelmaatkamp.breadmachinetimer"
-tags: ["android", "react-native", "expo"]
+tags: ["android", "kotlin", "compose-multiplatform", "kmp"]
 ---
 
-**Bread Machine Timer** solves a simple but surprisingly annoying problem: most bread machines only let you set a delay in hours, not a specific finish time. This app does the maths for you.
+**Artisan Timer** solves a surprisingly annoying daily problem: your bread machine needs a delay value (hours + minutes), but you just want to say _"I want fresh bread at 8am"_. This app does the maths instantly.
 
 ### How It Works
 
-1. Select your bread programme and its duration
-2. Set the time you want fresh bread to be ready
-3. The app calculates the exact start time
+1. Pick a bread preset — or set a custom bake duration with the wheel picker
+2. Choose the time you want fresh bread ready
+3. The app shows you the exact delay to enter on your machine
 
-That's it. No account, no ads, no internet connection required.
+No account. No cloud. Works completely offline.
 
 ### Key Features
 
-- **Reverse Timer** — Enter your target finish time, get the exact start time instantly
-- **Programme Library** — Supports common bread programmes (white, whole wheat, sourdough, etc.) with typical durations
-- **Multiple Machines** — Save profiles for different bread machine models
-- **Offline** — Works completely without an internet connection
+- **Instant delay calculation** — enter ready time, get the delay value immediately
+- **7 bread presets** — White, Whole Wheat, French, Sourdough, Rye, Sweet, Quick Bake
+- **Home screen widget** — see your delay at a glance without opening the app
+- **Notification** — optional alert when your bread should be ready
+- **Real-time countdown** — updates every minute while a timer is running
+- **12h / 24h support** — matches your system preference
+- **EN + NL** — English and Dutch language support
 
-Built with React Native and Expo for a fast, lightweight experience.
+### Built With
+
+- **Kotlin Multiplatform** — shared business logic across platforms
+- **Compose Multiplatform** — native Android UI
+- **Glance** — Android home screen widget
+- **Koin** — dependency injection
+- **multiplatform-settings** — persistent preferences
+
+v2.0 is a complete rewrite from the original React Native/Expo version — faster, smaller, and fully native.
